@@ -1,7 +1,20 @@
 function sendSOS(){
-    alert("SOS Alert Activated!");
-}
 
+    navigator.geolocation.getCurrentPosition(function(position){
+
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+
+        alert("SOS Alert Activated!");
+
+        let mapsLink =
+        `https://www.google.com/maps?q=${lat},${lon}`;
+
+        window.open(mapsLink,"_blank");
+
+    });
+
+}
 function getLocation(){
 
     if(navigator.geolocation){
